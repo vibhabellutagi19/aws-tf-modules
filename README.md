@@ -10,7 +10,6 @@ This repository contains reusable **Terraform modules** for AWS services. Each m
 | **EC2 Instance** | Provisions an EC2 instance with configurable instance type, key pair, and security groups. | ✅      | ✅       | `modules/ec2-instance` |
 | **VPC**          | Creates a VPC with subnets, NAT gateway, and route tables.                                 | ✅      | ✅       | `modules/vpc`          |
 | **IAM Role**     | Creates an IAM role with configurable policies and permissions.                            | ✅      | ✅       | `modules/iam-role`     |
-| **RDS**          | Deploys an RDS instance with security groups and backup options.                           | ✅      | ✅       | `modules/rds`          |
 | **Lambda**       | Deploys a Lambda function with IAM permissions and environment variables.                  | ✅      | ✅       | `modules/lambda`       |
 | **SQS Queue**    | Creates an SQS queue with optional dead-letter queue (DLQ).                                | ✅      | ✅       | `modules/sqs`          |
 
@@ -32,9 +31,6 @@ This repository contains reusable **Terraform modules** for AWS services. Each m
 
 ### **📌 Best Practices**
 ✅ Use **versioning** (`?ref=v1.0.0`) when using modules from GitHub.  
-✅ Follow **naming conventions** to keep resources organized.  
-✅ Use **backend configuration** (e.g., S3 + DynamoDB) for Terraform state management.  
+✅ Follow **naming conventions** to keep resources organized.
 
 ---
-
-This table makes it **easy to navigate** all modules in your repo! Let me know if you want to add more modules or improve the structure. 🚀
