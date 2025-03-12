@@ -5,7 +5,7 @@ resource "aws_s3_bucket" "this" {
 
   tags = merge(
     var.default_tags,
-    { "Name" = var.bucket_name != null ? var.bucket_name : "${var.project_key}-${var.bucket_prefix}" }
+    { "project_key" = var.project_key }
   )
 }
 
