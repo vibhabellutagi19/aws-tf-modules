@@ -25,21 +25,55 @@ This Terraform module provisions an **AWS S3 bucket** with optional KMS encrypti
 ### **🚀 Usage**
 ```hcl
 module "s3" {
-  source      = "git::https://github.com/your-org/aws-tf-modules.git//modules/s3-bucket"
+  source          = "git::https://github.com/your-org/aws-tf-modules.git//modules/s3?ref=v1.0.0"
+  
+  project_key     = "devproj"
+  bucket_name     = "app-logs"
+  iam_role_name   = "s3-access-role"
+  policy_name     = "s3-access-policy"
 
-  bucket_name                = "my-project-bucket"
-  bucket_prefix              = null       # If using generated names
-  force_destroy              = true       # Allows bucket deletion
-  sse_kms_encrypted_objects  = true       # Enables KMS encryption
+  custom_policy_json = <<EOT
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": ["s3:GetObject", "s3:PutObject"],
+      "Resource": ["arn:aws:s3:::devproj-app-logs/*"]
+    }
+  ]
+}
+EOT
 
-  tags = {
+  default_tags = {
     Environment = "dev"
-    Project     = "my-project"
+    Owner       = "user@example.com"
   }
 }
 ```
 
 ---
+
+
+
+## **Versioning**
+- Always use **tagged releases** when referencing this module:
+  ```hcl
+  source = "git::https://github.com/your-org/aws-tf-modules.git//modules/s3?ref=v1.0.0"
+  ```
+- Follow **semantic versioning** (`v1.0.0`, `v1.1.0`, `v2.0.0`, etc.).
+
+---
+
+## **Best Practices**
+- **Enable S3 versioning** to protect against accidental deletions.
+- **Use lifecycle policies** to automatically delete/archive objects.
+- **Enforce encryption** (SSE-S3 or SSE-KMS) for data security.
+- **Restrict public access** using S3 bucket policies.
+- **Use IAM policies instead of bucket policies** where possible.
+- **Apply tags** to help track ownership and cost allocation.
+```
+
 
 ### **📖 Notes**
 - If **`bucket_name` is provided**, `bucket_prefix` is ignored.
