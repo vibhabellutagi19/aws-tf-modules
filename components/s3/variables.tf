@@ -9,12 +9,6 @@ variable "bucket_name" {
   default     = null
 }
 
-variable "bucket_prefix" {
-  description = "(Optional) Prefix for the bucket name if `bucket_name` is not provided."
-  type        = string
-  default     = null
-}
-
 variable "force_destroy" {
   description = "If `true`, allows deletion of non-empty buckets."
   type        = bool
