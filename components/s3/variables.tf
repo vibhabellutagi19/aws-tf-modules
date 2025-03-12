@@ -27,8 +27,8 @@ variable "custom_bucket_policy_json" {
   default     = ""
 }
 
-variable "default_tags" {
-  description = "Default tags applied to all resources"
+variable "additional_tags" {
+  description = "additional tags to apply to the S3 bucket"
   type        = map(string)
   default     = {}
 }

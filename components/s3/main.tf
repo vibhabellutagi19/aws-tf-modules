@@ -4,7 +4,7 @@ resource "aws_s3_bucket" "this" {
   force_destroy = var.force_destroy
 
   tags = merge(
-    var.default_tags,
+    var.additional_tags,
     { "project_key" = var.project_key }
   )
 }
