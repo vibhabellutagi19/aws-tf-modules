@@ -1,17 +1,14 @@
 output "bucket_name" {
-  value = aws_s3_bucket.this.id
+  description = "The name of the created S3 bucket."
+  value       = aws_s3_bucket.this.bucket
 }
 
 output "bucket_arn" {
-  value = aws_s3_bucket.this.arn
+  description = "The ARN of the created S3 bucket."
+  value       = aws_s3_bucket.this.arn
 }
 
-output "iam_role_arn" {
-  description = "ARN of the IAM role"
-  value       = aws_iam_role.s3_role.arn
-}
-
-output "policy_arn" {
-  description = "ARN of the attached IAM policy"
-  value       = aws_iam_policy.custom_policy.arn
+output "bucket_policy_arn" {
+  description = "The ARN of the S3 Bucket Policy (if created)."
+  value       = length(aws_s3_bucket_policy.this) > 0 ? aws_s3_bucket_policy.this[0].id : null
 }
