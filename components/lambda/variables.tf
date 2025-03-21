@@ -50,7 +50,7 @@ variable "environment_variables" {
 
 variable "iam_policy" {
   description = "Custom IAM policy JSON for Lambda"
-  type        = Any
+  type        = any
 }
 
 variable "default_tags" {
