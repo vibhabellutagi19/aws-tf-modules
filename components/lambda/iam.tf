@@ -22,9 +22,8 @@ resource "aws_iam_role" "iam_for_lambda" {
 }
 
 resource "aws_iam_policy" "custom_lambda_policy" {
-  count  = var.attach_custom_policy ? 1 : 0
   name   = "${var.project_key}-${var.lambda_name}-policy"
-  policy = var.custom_policy_json
+  policy = var.iam_policy
 
   tags = merge(
     var.default_tags,

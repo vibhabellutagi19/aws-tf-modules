@@ -11,11 +11,13 @@ variable "lambda_name" {
 variable "lambda_source_file" {
   description = "Path to the source file of the Lambda function"
   type        = string
+  default = null
 }
 
 variable "lambda_object_path" {
   description = "Path to the object file of the Lambda function"
   type        = string
+  default = null
 }
 
 variable "runtime" {
@@ -46,15 +48,9 @@ variable "environment_variables" {
   default     = {}
 }
 
-variable "custom_policy_json" {
+variable "iam_policy" {
   description = "Custom IAM policy JSON for Lambda"
-  type        = string
-  default     = ""
-}
-
-variable "attach_custom_policy" {
-  description = "Attach custom IAM policy to Lambda role"
-  type        = bool
+  type        = map(string)
 }
 
 variable "default_tags" {
