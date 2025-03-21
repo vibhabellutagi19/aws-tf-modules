@@ -1,11 +1,11 @@
 output "lambda_function_name" {
   description = "Lambda function name"
-  value       = aws_lambda_function.lambda_function.function_name
+  value       = aws_lambda_function.lambda.function_name
 }
 
 output "lambda_function_arn" {
   description = "Lambda function ARN"
-  value       = aws_lambda_function.lambda_function.arn
+  value       = aws_lambda_function.lambda.arn
 }
 
 output "iam_role_arn" {
