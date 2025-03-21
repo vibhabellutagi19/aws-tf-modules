@@ -1,12 +1,20 @@
 ## **📌 S3 Bucket Module**
-This Terraform module provisions an **AWS S3 bucket** with:
-✅ Custom bucket policies  
-✅ Force deletion support  
-✅ Tagging support  
+
+Table of Contents
+
+- [Introduction](#introduction)
+- [Input Variables](#input-variables)
+- [Output](#outputs)
+- [Usage](#usage)
+- [Best Practices](#best-practices)
 
 ---
 
-### **📥 Input Variables**
+## **Introduction**
+The **S3 Bucket module** provisions an AWS S3 bucket.
+
+---
+## **Input Variables**
 | Name                        | Type          | Default | Description                                                                                                      |
 |-----------------------------|---------------|---------|------------------------------------------------------------------------------------------------------------------|
 | `bucket_name`               | `string`      | `null`  | (Optional) The name of the S3 bucket. If provided, `bucket_prefix` is ignored.                                   |
@@ -17,7 +25,7 @@ This Terraform module provisions an **AWS S3 bucket** with:
 
 ---
 
-### **📤 Outputs**
+## **Outputs**
 | Name                | Description                                              |
 |---------------------|----------------------------------------------------------|
 | `bucket_name`       | The name of the created S3 bucket.                       |
@@ -26,7 +34,7 @@ This Terraform module provisions an **AWS S3 bucket** with:
 
 ---
 
-### **🚀 Usage**
+## **usage**
 ```hcl
 module "s3" {
   source          = "git::https://github.com/your-org/aws-tf-modules.git//modules/s3?ref=v1.0.0"
@@ -57,3 +65,9 @@ EOT
   }
 }
 ```
+
+---
+## **Best Practices**
+- **Use least privilege Bucket permissions** for S3.
+- **Enable logging** for better debugging.
+- **Enable server-side encryption** to protect data at rest.

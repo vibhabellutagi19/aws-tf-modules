@@ -13,6 +13,11 @@ variable "lambda_source_file" {
   type        = string
 }
 
+variable "lambda_object_path" {
+  description = "Path to the object file of the Lambda function"
+  type        = string
+}
+
 variable "runtime" {
   description = "Lambda runtime environment (e.g., python3.8, nodejs14.x)"
   type        = string
@@ -47,8 +52,54 @@ variable "custom_policy_json" {
   default     = ""
 }
 
+variable "attach_custom_policy" {
+  description = "Attach custom IAM policy to Lambda role"
+  type        = bool
+}
+
 variable "default_tags" {
   description = "Default tags applied to all resources"
   type        = map(string)
   default     = {}
 }
+
+variable "s3_bucket" {
+  type        = string
+  description = "S3 bucket for Lambda package"
+  default     = null
+}
+
+variable "s3_key" {
+  type        = string
+  description = "S3 key for Lambda package"
+  default     = null
+}
+
+variable "s3_object_version" {
+  type        = string
+  description = "S3 object version for Lambda package"
+  default     = null
+}
+
+variable "image_uri" {
+  type        = string
+  description = "Optional container image URI for Lambda"
+  default     = null
+}
+
+variable "vpc_config" {
+  type = object({
+    subnet_ids         = list(string)
+    security_group_ids = list(string)
+  })
+  default = null
+}
+
+variable "logging_config" {
+  type = object({
+    log_format = string
+    log_group = string
+  })
+  default = null
+}
+

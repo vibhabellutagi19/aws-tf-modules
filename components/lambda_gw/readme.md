@@ -1,5 +1,15 @@
 # Lambda Module
 
+Table of Contents
+
+- [Introduction](#introduction)
+- [Input Variables](#input-variables)
+- [Output Variables](#output-variables)
+- [Usage](#usage)
+- [Best Practices](#best-practices)
+
+---
+
 ## **Introduction**
 The **Lambda module** allows you to create an AWS Lambda function along with an **IAM role and optional IAM policies**. It provides a **reusable** way to deploy Lambda functions across multiple AWS environments.
 
