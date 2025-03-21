@@ -50,7 +50,7 @@ variable "environment_variables" {
 
 variable "iam_policy" {
   description = "Custom IAM policy JSON for Lambda"
-  type        = map(list(string))
+  type        = map(string)
 }
 
 variable "default_tags" {
