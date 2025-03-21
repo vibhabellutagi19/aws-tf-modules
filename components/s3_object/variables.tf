@@ -13,6 +13,11 @@ variable "source_path" {
   description = "Path to local file to upload"
 }
 
+variable "project_key" {
+    type        = string
+    description = "Unique project key prefix for resources"
+}
+
 variable "content_type" {
   type        = string
   default     = "binary/octet-stream"

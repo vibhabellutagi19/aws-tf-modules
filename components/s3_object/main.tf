@@ -6,5 +6,8 @@ resource "aws_s3_object" "this" {
   content_type = var.content_type
   kms_key_id   = var.kms_key_id
   acl          = var.acl
-  tags         = var.tags
+  tags = merge(
+    var.tags,
+    { "project_key" = var.project_key }
+  )
 }
